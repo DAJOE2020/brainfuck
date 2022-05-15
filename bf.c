@@ -101,12 +101,13 @@ int main(int argc, char* argv[]) {
 	free(stackBuff);
 
 	// init tape
-	int tape[tapesize];
+	char tape[tapesize];
 	for (int i=0;i<tapesize;i++) tape[i] = 0;
 	int ptr = 0;
 	int maxptr = 0;
 	char debug = 0;
 	char valid = 0;
+	char strDump[1024];
 
 	// loop through program
 	for (int i=0;i<pz;i++) {
@@ -121,10 +122,11 @@ int main(int argc, char* argv[]) {
 				tape[ptr]--;
 				break;
 			case '.':
-				printf("%c",(char)tape[ptr]);
+				printf("%c",tape[ptr]);
 				break;
 			case ',':
-				tape[ptr] = getchar();
+				fgets(strDump, 1024, stdin);
+				tape[ptr] = strDump[0];
 				break;
 			case '<':
 				ptr--;
@@ -157,7 +159,7 @@ int main(int argc, char* argv[]) {
 			}
 			printf("}\n");
 			printf("command: %c\n",c);
-			getchar();
+			fgets(strDump, 1024, stdin);
 		}
 	}
 
