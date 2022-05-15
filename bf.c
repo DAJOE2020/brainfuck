@@ -110,7 +110,8 @@ int main(int argc, char* argv[]) {
 	char strDump[1024];
 
 	// loop through program
-	for (int i=0;i<pz;i++) {
+	long i = 0;
+	while (i < pz) {
 		c = buff[i];
 		valid = 1;
 		
@@ -135,7 +136,7 @@ int main(int argc, char* argv[]) {
 				ptr++;
 				break;
 			case '[':
-				if (tape[ptr] != 0) i = pairs[i];
+				if (tape[ptr] == 0) i = pairs[i];
 				break;
 			case ']':
 				if (tape[ptr] != 0) i = pairs[i];
@@ -161,6 +162,7 @@ int main(int argc, char* argv[]) {
 			printf("command: %c\n",c);
 			fgets(strDump, 1024, stdin);
 		}
+		i++;
 	}
 
 	// free memory
