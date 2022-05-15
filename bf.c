@@ -135,7 +135,7 @@ int main(int argc, char* argv[]) {
 				ptr++;
 				break;
 			case '[':
-				if (tape[ptr] == 0) i = pairs[i];
+				if (tape[ptr] != 0) i = pairs[i];
 				break;
 			case ']':
 				if (tape[ptr] != 0) i = pairs[i];
