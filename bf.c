@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
 
 		if (c == ']') {
 			if (counter == 0) {
-				printf("unbalanced brackets; too many ]");
+				printf("unbalanced brackets; too many ]\n");
 				return(-1);
 			}
 			j = stackBuff[--counter];
@@ -95,7 +95,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	if (counter != 0) {
-		printf("unbalanced brackets; too many [");
+		printf("unbalanced brackets; too many [\n");
 		return(-1);
 	}
 	free(stackBuff);
